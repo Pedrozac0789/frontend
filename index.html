@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet"/>
+       <link rel="stylesheet" href="./styles/calendario.css">
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/modal.css" />
+    <title>Organize+</title>
+  </head>
+  <body>
+    <header>
+      <section class="logo">
+        <img src="./assets/img1.png" alt="" />
+        <h1>Organize <span>+</span></h1>
+      </section>
+
+      <nav>
+        <ul>
+          <li>
+            <a href="./index.html">
+              <button class="btn-header" type="button">Home</button>
+            </a>
+          </li>
+          <li>
+            <a href="./ProgramaSemanal/index.html"
+              ><button class="btn-header" type="button">
+                Criar programa semanal
+              </button></a
+            >
+          </li>
+          <li>
+            <a href="./TabelaSemanal/index.html#h2">
+              <button class="btn-header" type="button" onclick="openWeek()">
+                Tabela Semanal
+              </button>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Parte Onde Sera Mostrado os compromissos do dia -->
+
+      <section class="home">
+        <div class="img">
+          <img src="./assets/img4.png" alt="" />
+        </div>
+        <div class="tarefa">
+          <h1 id="dds"></h1>
+          <h2 id="diaAtual">Dia:</h2>
+
+          <section>
+            <ul id="listaTarefas" class="ul">
+              <li></li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="calendar">
+          <h2 id="monthYear"></h2>
+          <div class="days" id="daysContainer"></div>
+        </div>
+      </section>
+      <!-- Parte Modal para editar os compromissos -->
+      <div class="modal-container" id="modalEditar" >
+        <div class="modal">
+          <form id="formEditar">
+            <label for="descricao">Compromisso</label>
+            <input
+              id="descricao"
+              name="descricao"
+              type="text"
+              placeholder="Ex: Reunião, Aula, etc."
+              required
+            />
+
+            <label for="tempI">Tempo Inicial</label>
+            <input id="tempI" name="tempI" type="time" required />
+
+            <label for="tempF">Tempo Final</label>
+            <input id="tempF" name="tempF" type="time" required />
+
+            <button  type="submit" id="btnSalvar">
+              Salvar
+            </button>
+          
+            <button  type="button" id="btnCancelar">
+              Cancelar
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>Desenvolvido por Pedro Zacarias@Projeto Final - Let's Code</p>
+    </footer>
+
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>

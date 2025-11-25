@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>Crie um Programa Semanal</title>
+  </head>
+  <body>
+    <header>
+      <section class="logo">
+        <img src="../assets/img1.png" alt="" />
+        <h1>Organize <span>+</span></h1>
+      </section>
+
+      <nav>
+        <ul>
+          <li>
+            <a href="../index.html">
+              <button class="btn-header" type="button">Home</button></a
+            >
+          </li>
+          <li>
+            <a href="./index.html"
+              ><button class="btn-header" type="button">
+                Criar programa semanal
+              </button></a
+            >
+          </li>
+          <li>
+            <a href="../TabelaSemanal/index.html#h2">
+              <button class="btn-header" type="button" onclick="openWeek()">
+                Tabela Semanal
+              </button>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="conteiner">
+        <div class="card-img">
+          <img src="../assets/img5.png" alt="" />
+        </div>
+
+        <div class="card-form">
+          <form id="formWeek">
+            <h1 class="titlle_form" id="titlle_form">
+              Crie seu <br />
+              Programa Semanal 
+            </h1>
+            <label for="diaSemena">Escolha um dia da semena</label>
+            <br />
+            <select
+              name="diaSemana"
+              id="diaSemana"
+              title="Escolha um dia da semana"
+            ></select>
+            <br />
+            <label for="nome">Compromisso</label>
+            <input
+              id="descricao"
+              name="nome"
+              type="text"
+              placeholder="Ex: Reunião, Aula, etc."
+              required
+            />
+
+            <label for="tempI">Tempo Inicial</label>
+            <input id="tempI" name="tempoInicial" type="time" required />
+
+            <label for="tempF">Tempo Final</label>
+            <input id="tempF" name="tempoFinal" type="time" required />
+
+            <button type="submit" id="btnSalvar">Salvar</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Desenvolvido por Pedro Zacarias@Projeto final-Let's Code</p>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>
