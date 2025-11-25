@@ -1,3 +1,4 @@
+const baseUrl = `https://backend-delta-liart-62.vercel.app` 
 const diaAtual = document.getElementById("diaAtual");
 const diaDaSemana = document.getElementById("dds");
 
@@ -60,7 +61,7 @@ select_diaSemana.innerHTML = semana.map((item) => {
 // Busca tarefas de uma data específica
 async function buscarTarefasDate(dateISO) {
   try {
-    const response = await fetch(`http://localhost:3002/tarefas/${dateISO}`);
+    const response = await fetch(`${baseUrl}/tarefas/${dateISO}`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     return Array.isArray(data) ? data : [];
@@ -203,7 +204,7 @@ document.addEventListener("DOMContentLoaded", carregarSemana);
 // função de excluir 
 
 function excluirItem(id) {
-  fetch(`http://localhost:3002/deletarTarefa/${id}`, {
+  fetch(`${baseUrl}/deletarTarefa/${id}`, {
     method: 'DELETE',
   })
   .then(response => {
@@ -220,7 +221,7 @@ function excluirItem(id) {
 
 async function buscarDadosTarefa(id) {
     try {
-        response = await fetch(`http://localhost:3002/tarefa/${id}`);
+        response = await fetch(`${baseUrl}/tarefa/${id}`);
         dados = await response.json();
         console.log(dados);
         return dados;
@@ -263,7 +264,7 @@ if (formEditarEl) {
         console.log('Editando:', editId, descricao, start_time, end_time);
 
         try {
-            const res = await fetch(`http://localhost:3002/editarTarefas/${editId}`, {
+            const res = await fetch(`${baseUrl}/editarTarefas/${editId}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",

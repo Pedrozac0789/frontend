@@ -1,3 +1,4 @@
+const baseUrl = `https://backend-delta-liart-62.vercel.app` 
 const diaAtual = document.getElementById("diaAtual");
 const diaDaSemana = document.getElementById("dds");
 
@@ -32,7 +33,7 @@ async function adicionarTarefa() {
     return;
   }
   console.log(diaAtual, descricao, start_time, end_time);
-  const response = await fetch("http://localhost:3002/adicionar", {
+  const response = await fetch(`${baseUrl}/adicionar`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -1,3 +1,5 @@
+const baseUrl = `https://backend-delta-liart-62.vercel.app` 
+
 // ====================================
 // CONFIGURAÇÃO INICIAL DE DATA E ELEMENTOS
 // ====================================
@@ -125,7 +127,7 @@ function selecionarDia(diaClicado, mesClicado, anoClicado, elemento) {
 // Busca tarefas de uma data específica
 async function buscarDadosHoje(data) {
     try {
-        const response = await fetch(`http://localhost:3002/tarefasHoje/${data}`);
+        const response = await fetch(`${baseUrl}/tarefasHoje/${data}`);
         const dados = await response.json();
         console.log('Tarefas do dia:', dados);
         
@@ -163,7 +165,7 @@ async function buscarDadosHoje(data) {
 // Busca dados de uma tarefa específica
 async function buscarDadosTarefa(id) {
     try {
-        const response = await fetch(`http://localhost:3002/tarefa/${id}`);
+        const response = await fetch(`${baseUrl}/tarefa/${id}`);
         const dados = await response.json();
         console.log('Dados da tarefa:', dados);
         return dados;
@@ -216,7 +218,7 @@ if (formEditarEl) {
         const end_time = String(formData.get("tempF")).slice(0, 5);
 
         try {
-            const res = await fetch(`http://localhost:3002/editarTarefas/${editId}`, {
+            const res = await fetch(`${baseUrl}/editarTarefas/${editId}`, {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ descricao, start_time, end_time }),
@@ -247,7 +249,7 @@ async function excluirTarefa(id) {
     }
     
     try {
-        const response = await fetch(`http://localhost:3002/deletarTarefa/${id}`, {
+        const response = await fetch(`${baseUrl}/deletarTarefa/${id}`, {
             method: "DELETE",
         });
         
