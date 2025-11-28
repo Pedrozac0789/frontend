@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap");
 
 * {
@@ -10,6 +9,13 @@
 
 body {
   background-color: #dcc9e4;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 /* HEADER */
@@ -22,6 +28,7 @@ header {
   width: 100%;
   height: 135px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 15px;
 }
 
 h1 {
@@ -29,6 +36,7 @@ h1 {
   font-size: 40px;
   color: #8a69f6;
   text-shadow: 2px 1px 3px hsl(263, 98%, 64%);
+  text-align: center;
 }
 
 h1 span {
@@ -42,6 +50,8 @@ nav ul {
   align-items: center;
   justify-content: center;
   text-align: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 li {
@@ -61,8 +71,14 @@ li {
   box-shadow: 0px 2px 13px 1px #8908ec84;
   width: 250px;
   height: 35px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
+.btn-header:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 16px 2px #8908ec84;
+}
 
 /* LOGO / IMAGEM */
 .logo {
@@ -79,46 +95,56 @@ li {
 .img {
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .img img {
   width: 470px;
+  max-width: 100%;
   margin-top: 80px;
 }
+
 /* LAYOUT DA SEMANA */
 .semana {
   width: 90%;
-  height: 200px;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2px;
+  margin: 0 auto;
 }
 
 #h2 {
-  margin-left: 100px;
-  margin-bottom: 100px;
+  text-align: center;
+  margin: 0 auto 50px;
+  width: 100%;
 }
 
 .hideen {
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   flex-direction: column;
-  margin-right: 110px;
-
+  margin: 0 auto;
+  width: 100%;
+  max-width: 500px;
+  padding: 0 20px;
 }
 
 #sectionWeek {
   margin-bottom: 100px;
-  width: 100%;
-  margin-left: 100px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
 }
 
 /* TABELA SEMANAL */
 #sectionWeek table {
-  width: 90%;
-  margin: 10px auto 40px;
+  width: 100%;
+  margin: 0 auto 60px;
   border-collapse: separate;
   border-spacing: 10px;
   background: linear-gradient(180deg, #2f0650 0%, #24043b 100%);
@@ -126,29 +152,31 @@ li {
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   overflow: hidden;
-  table-layout: fixed; /* importante para colunas estáveis */
-  margin-top: 360px;
-  margin-bottom: 200px;
-  margin-right: 70px;
+  table-layout: fixed;
 }
-#sectionWeek{
-    margin-bottom: 300px;
-    width: 90%;
 
+#sectionWeek {
+  margin-bottom: 80px;
+  width: 90%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 #sectionWeek h2 {
-    margin-top: 70px;
-    margin-right: 130px;
+  margin-top: 50px;
   color: #8a69f6;
   font-size: 32px;
   text-shadow: 2px 1px 3px hsl(263, 98%, 64%);
-  
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 #sectionWeek thead {
   display: table-header-group;
   width: 100%;
 }
+
 #sectionWeek thead tr {
   display: table;
   width: 100%;
@@ -156,14 +184,12 @@ li {
 }
 
 #tableBodySemana {
-  display: block;              /* transforma tbody em container rolável */
-  max-height: 409px;          /* ajuste conforme necessidade */
+  display: block;
+  max-height: 409px;
   overflow-y: auto;
   width: 100%;
 }
 
-
-/* Cabeçalho inserido pelo JS (primeira linha dentro do tbody) */
 #tableBodySemana tr:first-child th {
   background: rgba(255, 255, 255, 0.04);
   padding: 12px 14px;
@@ -174,15 +200,13 @@ li {
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* Linhas da tabela */
 #tableBodySemana tr {
   background: transparent;
-   display: table;
+  display: table;
   width: 100%;
   table-layout: fixed;
 }
 
-/* Células contendo tarefas */
 #tableBodySemana td {
   vertical-align: top;
   padding: 10px;
@@ -190,13 +214,11 @@ li {
   border-radius: 8px;
   min-width: 120px;
   max-width: 220px;
-  height: 120px; /* altura fixa para uniformizar linhas */
+  height: 120px;
   overflow: hidden;
   position: relative;
 }
 
-
-/* células continuam como table-cell para alinhamento */
 #sectionWeek thead th,
 #tableBodySemana td {
   padding: 12px;
@@ -206,57 +228,49 @@ li {
   word-break: break-word;
 }
 
-/* scrollbar custom para tbody */
+/* Scrollbar custom */
 #tableBodySemana::-webkit-scrollbar {
   width: 10px;
 }
+
 #tableBodySemana::-webkit-scrollbar-track {
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   border-radius: 10px;
-}
-#tableBodySemana::-webkit-scrollbar-thumb {
-  background: rgba(138,105,246,0.35);
-  border-radius: 10px;
-  border: 2px solid rgba(41,2,63,0.6);
 }
 
-/* Firefox */
+#tableBodySemana::-webkit-scrollbar-thumb {
+  background: rgba(138, 105, 246, 0.35);
+  border-radius: 10px;
+  border: 2px solid rgba(41, 2, 63, 0.6);
+}
+
 #tableBodySemana {
   scrollbar-width: thin;
-  scrollbar-color: rgba(138,105,246,0.35) rgba(255,255,255,0.03);
+  scrollbar-color: rgba(138, 105, 246, 0.35) rgba(255, 255, 255, 0.03);
 }
 
-/* opcional: reduz altura das células para caber no scroll */
 #tableBodySemana td .tarefa-cell-wrapper {
   max-height: 140px;
   overflow: hidden;
   width: 100%;
 }
 
-
-
-
-/* estilo para cada tarefa dentro da célula */
 .tarefa-desc {
-  
   text-align: center;
   font-weight: 600;
   color: #f6e8ff;
   margin-bottom: 6px;
   line-height: 1.2;
   word-break: break-word;
-  
 }
 
 .tarefa-horario {
-text-align: center;
+  text-align: center;
   font-size: 14px;
   color: #d7bff9;
   margin-bottom: 5px;
-  
 }
 
-/* Ações (botões) */
 .tarefa-actions {
   display: flex;
   justify-content: center;
@@ -264,6 +278,7 @@ text-align: center;
   gap: 6px;
   margin-top: 10px;
   margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
 .btns {
@@ -279,7 +294,6 @@ text-align: center;
   cursor: pointer;
   transition: transform 120ms ease, background 120ms ease, box-shadow 120ms;
   font-size: 14px;
-  
 }
 
 .btns:hover {
@@ -293,7 +307,6 @@ text-align: center;
   vertical-align: middle;
 }
 
-/* Célula vazia (estiliza quando não há tarefa) */
 #tableBodySemana td:empty,
 #tableBodySemana td:contains("—") {
   display: table-cell;
@@ -301,18 +314,13 @@ text-align: center;
   color: rgba(255, 255, 255, 0.35);
   font-size: 18px;
   font-weight: 500;
-  margin-left: 20px;
 }
 
-/* pequenas melhorias visuais */
 #tableBodySemana td .tarefa-actions .btns:active {
   transform: translateY(0);
   opacity: 0.95;
 }
 
-
-
-/* Firefox-only scrollbar properties applied via feature query to avoid errors in other browsers */
 @supports (scrollbar-width: thin) {
   .ul,
   #tableBodySemana td .tarefa-list {
@@ -321,12 +329,393 @@ text-align: center;
   }
 }
 
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: rgb(41, 2, 63);
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-top: auto;
+  width: 100%;
+}
 
-footer{
-    
+/* ============================================
+   RESPONSIVIDADE - TABLETS (768px - 1024px)
+   ============================================ */
+@media screen and (max-width: 1024px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  h1 span {
+    font-size: 36px;
+  }
+
+  .btn-header {
+    width: 200px;
+    font-size: 16px;
+    margin: 0 10px;
+  }
+
+  .img img {
+    width: 350px;
+    margin-top: 60px;
+  }
+
+  #sectionWeek {
+    width: 95%;
+    padding: 0 15px;
+    margin-bottom: 60px;
+  }
+
+  #sectionWeek h2 {
+    font-size: 28px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  #sectionWeek table {
+    margin-top: 0;
+    margin-bottom: 50px;
+    border-spacing: 8px;
+  }
+
+  #tableBodySemana td {
+    min-width: 100px;
+    height: auto;
+    min-height: 100px;
+    padding: 8px;
+  }
+
+  #h2 {
     text-align: center;
-    padding: 20px;
-    background-color: rgb(41, 2, 63);
-    color: white;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 0 auto 40px;
+  }
+
+  .hideen {
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - TABLETS PEQUENOS (600px - 768px)
+   ============================================ */
+@media screen and (max-width: 768px) {
+  header {
+    height: auto;
+    padding: 20px 15px;
+  }
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  h1 span {
+    font-size: 32px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btn-header {
+    width: 220px;
+    margin: 5px 0;
+    margin-bottom: 10px;
+  }
+
+  .logo img {
+    width: 80px;
+    margin-bottom: 10px;
+  }
+
+  .img img {
+    width: 280px;
+    margin-top: 40px;
+  }
+
+  #sectionWeek {
+    width: 98%;
+    padding: 0 10px;
+    margin-bottom: 50px;
+  }
+
+  #sectionWeek h2 {
+    font-size: 24px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+  }
+
+  #sectionWeek table {
+    margin-top: 0;
+    margin-bottom: 40px;
+    border-spacing: 5px;
+  }
+
+  #tableBodySemana {
+    max-height: 350px;
+  }
+
+  #tableBodySemana td {
+    min-width: 80px;
+    padding: 6px;
+    font-size: 13px;
+  }
+
+  .tarefa-desc {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  .tarefa-horario {
+    font-size: 12px;
+  }
+
+  .btns {
+    padding: 5px 6px;
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  .btns i {
+    font-size: 14px;
+  }
+
+  #h2 {
+    text-align: center;
+    margin: 0 auto 30px;
+    font-size: 22px;
+  }
+
+  .hideen {
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+
+  .semana {
+    width: 95%;
+    flex-direction: column;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - SMARTPHONES (até 600px)
+   ============================================ */
+@media screen and (max-width: 600px) {
+  header {
+    height: auto;
+    padding: 15px 10px;
+  }
+
+  h1 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  h1 span {
+    font-size: 26px;
+  }
+
+  .btn-header {
+    width: 180px;
+    height: 32px;
+    font-size: 14px;
+    margin: 5px 0;
+  }
+
+  .logo img {
+    width: 60px;
+    margin-bottom: 8px;
+  }
+
+  .img img {
+    width: 220px;
+    margin-top: 30px;
+  }
+
+  #sectionWeek {
+    width: 100%;
+    padding: 0 5px;
+    margin-bottom: 40px;
+    margin-left: 0;
+  }
+
+  #sectionWeek h2 {
+    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+  }
+
+  #sectionWeek table {
+    margin-top: 0;
+    margin-bottom: 30px;
+    border-spacing: 3px;
+    font-size: 12px;
+  }
+
+  #tableBodySemana {
+    max-height: 300px;
+  }
+
+  #tableBodySemana tr:first-child th {
+    font-size: 11px;
+    padding: 8px 6px;
+  }
+
+  #tableBodySemana td {
+    min-width: 60px;
+    padding: 5px;
+    height: auto;
+    min-height: 80px;
+  }
+
+  #sectionWeek thead th,
+  #tableBodySemana td {
+    padding: 8px 4px;
+  }
+
+  .tarefa-desc {
+    font-size: 11px;
+    margin-bottom: 3px;
+  }
+
+  .tarefa-horario {
+    font-size: 10px;
+    margin-bottom: 3px;
+  }
+
+  .tarefa-actions {
+    gap: 4px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  .btns {
+    padding: 4px 5px;
+    font-size: 10px;
+    gap: 3px;
+  }
+
+  .btns i {
+    font-size: 12px;
+  }
+
+  #h2 {
+    text-align: center;
+    margin: 0 auto 20px;
+    font-size: 18px;
+  }
+
+  .hideen {
+    margin: 0 auto;
+    padding: 0 5px;
+  }
+
+  .semana {
+    width: 100%;
+  }
+
+  footer {
+    padding: 20px 10px;
+    font-size: 14px;
+    margin-top: auto;
+  }
+
+  /* Melhoria na scrollbar para mobile */
+  #tableBodySemana::-webkit-scrollbar {
+    width: 6px;
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE - SMARTPHONES PEQUENOS (até 400px)
+   ============================================ */
+@media screen and (max-width: 400px) {
+  h1 {
+    font-size: 18px;
+  }
+
+  h1 span {
+    font-size: 22px;
+  }
+
+  .btn-header {
+    width: 160px;
+    height: 30px;
+    font-size: 13px;
+  }
+
+  .img img {
+    width: 180px;
+    margin-top: 20px;
+  }
+
+  #sectionWeek h2 {
+    font-size: 18px;
+  }
+
+  #sectionWeek table {
+    margin-top: 0;
+    font-size: 11px;
+    margin-bottom: 30px;
+  }
+
+  #tableBodySemana td {
+    min-width: 50px;
+    min-height: 70px;
+  }
+
+  .tarefa-desc {
+    font-size: 10px;
+  }
+
+  .tarefa-horario {
+    font-size: 9px;
+  }
+
+  .btns {
+    padding: 3px 4px;
+    font-size: 9px;
+  }
+
+  .btns i {
+    font-size: 11px;
+  }
+}
+
+/* ============================================
+   MODO PAISAGEM (LANDSCAPE) PARA SMARTPHONES
+   ============================================ */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  header {
+    height: auto;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  .logo img {
+    width: 50px;
+    margin-bottom: 5px;
+  }
+
+  .img img {
+    width: 200px;
+    margin-top: 15px;
+  }
+
+  #sectionWeek table {
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+
+  #tableBodySemana {
+    max-height: 250px;
+  }
 }
