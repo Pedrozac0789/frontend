@@ -644,8 +644,9 @@ footer {
 
   .btn-header {
     width: 160px;
-    height: 30px;
+    height: 42px;
     font-size: 13px;
+    border-radius: 50px;
   }
 
   .img img {
