@@ -9,6 +9,9 @@
 
 body {
   background-color: #dcc9e4;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* HEADER */
@@ -19,9 +22,9 @@ header {
   flex-direction: column;
   background-color: rgb(41, 2, 63);
   width: 100%;
-  height: 135px;
+  min-height: 135px;
+  padding: 20px 15px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
 }
 
 h1 {
@@ -29,6 +32,7 @@ h1 {
   font-size: 40px;
   color: #8a69f6;
   text-shadow: 2px 1px 3px hsl(263, 98%, 64%);
+  text-align: center;
 }
 
 h1 span {
@@ -37,11 +41,20 @@ h1 span {
   font-size: 45px;
 }
 
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 nav ul {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  list-style: none;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 li {
@@ -51,16 +64,30 @@ li {
 /* BOTÃO HEADER */
 .btn-header {
   color: rgb(216, 161, 247);
-  margin: 0 20px;
+  margin: 5px;
   font-size: 18px;
   font-weight: 500;
   background-color: #460498;
-  border-radius: 12px;
+  border-radius: 15px;
   border: 1px solid #2e014b;
-  margin-bottom: 20px;
   box-shadow: 0px 2px 13px 1px #8908ec84;
   width: 250px;
-  height: 35px;
+  height: 44px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-header:hover {
+  transform: translateY(-2px);
+  background-color: #5a0bc4;
+  box-shadow: 0px 4px 16px 2px #8908ecaa;
+}
+
+.btn-header:active {
+  transform: translateY(0);
 }
 
 /* MAIN */
@@ -71,75 +98,93 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-
-
+  padding: 40px 20px;
+  flex: 1;
 }
 
 .home {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 40px;
- 
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
-
-
 
 /* LOGO / IMAGEM */
 .logo {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .logo img {
   width: 100px;
-  margin-bottom: 15px;
 }
 
 .img {
-  width: 100%;
-  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .img img {
-  width: 470px;
-  margin-top: 80px;
+  width: 100%;
+  max-width: 470px;
+  height: auto;
 }
 
 /* LISTA LATERAL (#ul) */
 .ul {
-  padding: 10px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   border: 2px solid #8a69f6;
   width: 300px;
-  border-radius: 10px;
+  border-radius: 12px;
   background-color: rgb(41, 2, 63);
-
-  /* Limita altura para ativar o scroll quando necessário */
   max-height: 360px;
   overflow-y: auto;
-  padding-right: 8px;
-
-  /* Compatibilidade */
-  -ms-overflow-style: -ms-autohiding-scrollbar; /* IE/Edge legacy */
+  -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
 /* WebKit scrollbar para #ul */
 .ul::-webkit-scrollbar {
   width: 10px;
 }
+
 .ul::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.03);
   border-radius: 10px;
 }
+
 .ul::-webkit-scrollbar-thumb {
   background: rgba(138, 105, 246, 0.35);
   border-radius: 10px;
   border: 2px solid rgba(41, 2, 63, 0.6);
+}
+
+/* CALENDÁRIO */
+.calendario {
+  padding: 15px;
+  border: 2px solid #8a69f6;
+  width: 300px;
+  border-radius: 10px;
+  background-color: rgb(41, 2, 63);
+  color: rgb(216, 161, 247);
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.calendario h3 {
+  text-align: center;
+  color: #8a69f6;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 /* SEPARADORES */
@@ -156,9 +201,10 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   margin-top: 10px;
   margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
 .btns {
@@ -169,12 +215,12 @@ li {
   background: rgba(255, 255, 255, 0.03);
   color: #f2dfff;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 6px 8px;
+  padding: 8px 12px;
   border-radius: 8px;
   cursor: pointer;
   transition: transform 120ms ease, background 120ms ease, box-shadow 120ms;
   font-size: 14px;
-  
+  min-width: 90px;
 }
 
 .btns:hover {
@@ -183,18 +229,276 @@ li {
   box-shadow: 0 6px 16px rgba(138, 105, 246, 0.12);
 }
 
+.btns:active {
+  transform: translateY(0);
+}
+
 .btns i {
   font-size: 16px;
   vertical-align: middle;
 }
 
+footer {
+  width: 100%;
+  min-height: 60px;
+  text-align: center;
+  padding: 15px;
+  background-color: rgb(41, 2, 63);
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
 
-footer{
-  margin-top: 5px;
-    text-align: center;
-    padding: 9px;
-    background-color: rgb(41, 2, 63);
-    color: white;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+/* TABLETS (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+  h1 {
+    font-size: 36px;
+  }
+
+  h1 span {
+    font-size: 40px;
+  }
+
+  .btn-header {
+    width: 300px;
+    font-size: 17px;
+    height: 42px;
+  }
+
+  main {
+    padding: 30px 20px;
+  }
+
+  .home {
+    gap: 30px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .img {
+    display: none;
+  }
+
+  .calendario {
+    display: flex;
+    width: 300px;
+  }
+
+  .ul {
+    width: 300px;
+  }
+}
+
+/* TABLETS PEQUENOS (600px - 768px) */
+@media screen and (max-width: 768px) {
+  header {
+    min-height: auto;
+    width: 120%;
+  }
+
+  h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+
+  h1 span {
+    font-size: 36px;
+  }
+
+  nav ul {
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-header {
+    width: 180px;
+    font-size: 16px;
+    height: 40px;
+    margin: 4px;
+  }
+
+  main {
+    padding: 25px 15px;
+  }
+
+  .home {
+    gap: 25px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .img {
+    display: none;
+  }
+
+  .calendario {
+    display: flex;
+    width: 90%;
+    max-width: 350px;
+  }
+
+  .ul {
+    width: 90%;
+    max-width: 350px;
+    max-height: 320px;
+  }
+
+  .btns {
+    font-size: 13px;
+    padding: 7px 10px;
+    min-width: 85px;
+  }
+  footer{
+    width: 120%;
+  }
+}
+
+/* SMARTPHONES (até 600px) */
+@media screen and (max-width: 600px) {
+  header {
+    min-height: auto;
+    padding: 20px 15px;
+  }
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  h1 span {
+    font-size: 32px;
+  }
+
+  .logo {
+    margin-bottom: 15px;
+  }
+
+  .logo img {
+    width: 80px;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    padding: 0;
+  }
+
+  .btn-header {
+    margin: 4px auto;
+    font-size: 16px;
+    height: 47px;
+  }
+
+  main {
+    padding: 30px 15px;
+  }
+
+  .home {
+    gap: 25px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .img {
+    display: none;
+  }
+
+  .calendario {
+    display: flex;
+    width: 90%;
+    max-width: 350px;
+  }
+
+  .ul {
+    width: 90%;
+    max-width: 350px;
+    max-height: 320px;
+  }
+
+  .tarefa-actions {
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .btns {
+    font-size: 13px;
+    padding: 8px 10px;
+    min-width: 80px;
+  }
+
+  .btns i {
+    font-size: 14px;
+  }
+
+  footer {
+    padding: 15px;
+    font-size: 14px;
+  }
+}
+
+/* SMARTPHONES PEQUENOS (até 400px) */
+@media screen and (max-width: 400px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  h1 span {
+    font-size: 28px;
+  }
+
+  .logo img {
+    width: 70px;
+  }
+
+  .btn-header {
+    font-size: 15px;
+    height: 47px;
+    width: 150px;
+    
+  }
+
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+  }
+
+  .calendario {
+    width: 95%;
+    max-width: 100%;
+    
+  }
+
+  .ul {
+    width: 90%;
+    max-width: 100%;
+    padding: 12px;
+    gap: 15px;
+    max-height: 280px;
+    
+  }
+
+  .btns {
+    font-size: 12px;
+    padding: 7px 8px;
+    min-width: 75px;
+  }
+
+  footer {
+    font-size: 13px;
+  }
 }
